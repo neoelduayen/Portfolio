@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* ----------------- */
+/* ---- animation ---- */
+
+@keyframes slidein {
+    from {
+      margin-left: -10%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 3%;
+      width: 100%;
+    }
+  }
+
+  @media (orientation: landscape) {
+    body {
+      grid-auto-flow: column;
+    }
+  }
+
+/* ----------------- */
+/* ---- index ---- */
+
+html {
+    background-color: #000000;
+    overflow-x: hidden;
+}
+
+nav { /* La barre de navigation */
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 2fr 2fr 3fr;
+    grid-template-rows: 80px;
+    background-color: #000000;
+    margin-top : -10px;
+    margin-right : -10px;
+    margin-left : -10px;
+    color: #000000;
+}
+
+
+.menu { /* L'interface de connexion */
+    grid-column-start: 3; 
+    grid-column-end: -1;
+    grid-row: 1;
+    margin-left: 60%;
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#button{ /* Le bouton des différents menus */
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    padding: 6px;
+    margin: 10px;
+    border: solid 2px #ffffff;
+    vertical-align: 25px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: linear-gradient(to left, #000000 50%, #ffffff 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
+}
+
+#button:hover {
+  background-position: left;
+  color: #000000;
+}
+
+
+/* ----------------- */
+
+h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 5.0em;
+    margin-top: 5%;
+    margin-left: 3%;
+    color: #ffffff;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+/* ----------------- */
+/* ---- mon-cv ---- */
+
+#CV {
+    width:800px; 
+    height:1200px;
+    margin-left: 28%;
+    /* center l'image au milieu de la page web*/
+    /* bordure */
+    border: 10px solid #ffffff;
+    /* bordure arrondie */
+    border-radius: 20px;
+    /* ombre */
+    box-shadow: 0 0 10px #ffffff;
+    overflow: hidden;
+}
