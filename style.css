@@ -87,6 +87,12 @@ h1 {
     animation-name: slidein;
 }
 
+p {
+  font-family: 'Righteous', cursive;
+  font-size: 1.5em;
+  color: #FFFFFF;
+}
+
 /* ----------------- */
 /* ---- mon-cv ---- */
 
