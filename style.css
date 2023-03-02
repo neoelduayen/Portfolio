@@ -1,201 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-/* ----------------- */
-/* ---- animation ---- */
-
-@keyframes slidein {
-    from {
-      margin-left: -10%;
-      width: 300%;
-    }
-  
-    to {
-      margin-left: 3%;
-      width: 100%;
-    }
-  }
-
-@keyframes appear {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-
-@media (orientation: landscape) {
-  body {
-      grid-auto-flow: column;
-    }
-  }
-
-/* ----------------- */
-/* ---- index ---- */
-
-html {
-    background-color: #000000;
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
-
-nav { /* La barre de navigation */
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 2fr 2fr 3fr;
-    grid-template-rows: 80px;
-    background-color: #000000;
-    margin-top : -10px;
-    margin-right : -10px;
-    margin-left : -10px;
-    color: #000000;
+.rectangle{
+  width:150vw;
+  height:60vw;
+  background: linear-gradient(to right,#7F00FF, #b403fa);
+  rotate: -10deg;
+  position: absolute;
+  margin-top: -22em;
+  margin-left: -2.5em;
+  border-radius: 60px;
+  z-index: -1;
 }
 
 
-.menu { /* L'interface de connexion */
-    grid-column-start: 3; 
-    grid-column-end: -1;
-    grid-row: 1;
-    margin-left: 60%;
-    margin-top: 30px;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
+nav {
+  /* peux tu créer plusieurs colonnes */
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr;
 }
-
-#button{ /* Le bouton des différents menus */
-    font-family: 'Righteous', cursive;
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 6px;
-    margin: 10px;
-    border: solid 2px #ffffff;
-    vertical-align: 25px;
-    font-size: 15px;
-    text-decoration: none;
-    border-radius: 20px;
-    background: linear-gradient(to left, #000000 50%, #ffffff 50%) right;
-    background-size: 200%;
-    transition: .5s ease-out;
-}
-
-#button:hover {
-  background-position: left;
-  color: #000000;
-}
-
-
-/* ----------------- */
 
 h1 {
+  grid-column-start: 0; 
+  grid-column-end: 0;
+  text-decoration: none;
+  color: white;
   font-family: 'Righteous', cursive;
-  font-size: 5.0em;
-  margin-top: 5%;
-  margin-left: 3%;
-  color: #ffffff;
-  animation-duration: 1s;
-  animation-name: slidein;
+  margin-left: 10%;
+  font-size: 5vw;
 }
 
-#bottomtext {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-    grid-gap: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+ul {
+  grid-column-start: 2;
+  grid-column-end: 2;
 }
 
-#bottomtext>p {
+li {
   grid-column-start: 1;
   grid-column-end: 1;
-  grid-row: 1;
-  font-family: 'Righteous', cursive;
-  font-size: 1.5em;
-  color: #FFFFFF;
-  margin-left: 3%;
-  margin-right: 3%;
-  opacity: 0;
-  animation-delay: 1s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-name: appear;
-}
-
-#pdp {
-    grid-column-start: 1; 
-    grid-column-end: 2;
-    grid-row: 1;
-    margin-left: 3%;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    border: 5px solid #ffffff;
-    box-shadow: 0 0 10px #ffffff;
-}
-
-#toptext {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-
-#toptext>p {
-  font-family: 'Righteous', cursive;
-  font-size: 1.5em;
-  color: #FFFFFF;
-  margin-left: 3%;
-  margin-right: 3%;
-  opacity: 0;
-  animation-delay: 2s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-name: appear;
-}
-
-#button2{ /* Le bouton du menu des compétences*/
-  grid-row: 2;
-  font-family: 'Righteous', cursive;
-  font-size: 3em;
-  text-align: left;
-  background-color: #000000;
-  color: #ffffff;
-  text-align: center;
-  padding: 6px;
-  margin: 10px;
-  border: solid 2px #ffffff;
-  font-size: 3em;
+  list-style: none;
   text-decoration: none;
-  border-radius: 40px;
-  background: linear-gradient(to left, #000000 50%, #ffffff 50%) right;
-  background-size: 200%;
+  color: white;
+  font-family: 'Righteous', cursive;
+  display: inline-block;
+  margin-left: 2vw;
+}
+
+.menu {
+  /* créer moi un menu de connexion */
+  text-decoration: none;
+  color: white;
+  font-family: 'Righteous', cursive;
+  display: inline-block;
+  margin-left: 0.4vw;
+  text-align: right;
+  margin-top: 50%;
+  font-size: 2vw;
   transition: .5s ease-out;
-  margin-left: 40%;
 }
 
-#button2:hover {
-  background-position: left;
-  color: #000000;
+a {
+  position: relative;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
-/* ----------------- */
-/* ---- mon-cv ---- */
+a:hover {
+  color: #FFFFFF;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:#FFFFFF;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.menu:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 #CV {
-    width:800px; 
-    height:1200px;
-    margin-left: 28%;
-    /* center l'image au milieu de la page web*/
-    /* bordure */
-    border: 10px solid #ffffff;
-    /* bordure arrondie */
-    border-radius: 20px;
-    /* ombre */
-    box-shadow: 0 0 10px #ffffff;
+  width:800px; 
+  height:1200px;
+  margin-left: 28%;
+  /* center l'image au milieu de la page web*/
+  /* bordure */
+  border: 10px solid #ffffff;
+  /* bordure arrondie */
+  border-radius: 20px;
+  /* ombre */
+  box-shadow: 0 0 10px #ffffff;
 }
