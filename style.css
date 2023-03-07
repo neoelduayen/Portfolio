@@ -81,7 +81,6 @@ li {
   text-align: right;
   margin-top: 50%;
   font-size: 2vw;
-  transition: .5s ease-out;
 }
 
 a {
@@ -133,20 +132,95 @@ p {
   width: 100%;
 }
 
-@media screen and (max-width: 1910px) {
+.Logo {
+  width: 2%;
+  height: 2%;
+  padding-right: 1%;
+}
+
+@media screen and (max-width: 1600px) {
   
   .rectangle{
     width:150vw;
-    height:85vw;
+    height:300vw;
     background: linear-gradient(to right,#7F00FF, #b403fa);
     position: fixed;
-    rotate: 10deg;
+    rotate: 0deg;
+    margin-top: -10em;
+    margin-left: -15.5em;
+    border-radius: 60px;
+    z-index: -1;
+  }
+
+  .rectangle3{
+    width:150vw;
+    height:300vw;
+    background: linear-gradient(to right,#7F00FF, #b403fa);
+    position: fixed;
+    rotate: 0deg;
     margin-top: -10em;
     margin-left: -15.5em;
     border-radius: 60px;
     z-index: -1;
   }
   
-}
+  nav {
+    /* peux tu créer plusieurs colonnes */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.3fr;
+  }
+  
+  .menu {
+    /* créer moi un menu de connexion */
+    text-decoration: none;
+    color: white;
+    font-family: 'Righteous', cursive;
+    display: inline-block;
+    margin-left: 0;
+    text-align: right;
+    margin-top: 0;
+    font-size: 2em;
+  }
+
+  h1 {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-family: 'Righteous', cursive;
+    margin-left: 0;
+    font-size: 4em;
+  }
+
+  ul {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    margin-left: -2vw;
+    text-align: center;
+  }
+  
+  li>a {
+    display: inline-block;
+    margin-left: 0;
+  }
+
+  li>h1 {
+    margin-left: 0;
+  }
+
+  
+
+  p {
+    grid-column-start: 0; 
+    grid-column-end: 0;
+    text-decoration: none;
+    color: white;
+    font-family: 'Righteous', cursive;
+    margin-left: 10%;
+    font-size: 2em;
+  }
+  
+  }
 
 
