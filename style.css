@@ -3,18 +3,41 @@
 body {
   overflow-x: hidden;
 }
+
 .rectangle{
   width:150vw;
   height:60vw;
   background: linear-gradient(to right,#7F00FF, #b403fa);
   rotate: -10deg;
   position: absolute;
-  margin-top: -22em;
+  margin-top: -30em;
   margin-left: -2.5em;
   border-radius: 60px;
   z-index: -1;
 }
 
+.rectangle2{
+  width:150vw;
+  height:30vw;
+  background: linear-gradient(to right,#7F00FF, #b403fa);
+  rotate: 10deg;
+  position: absolute;
+  margin-top: 50em;
+  margin-left: -58.5em;
+  border-radius: 60px;
+  z-index: -1;
+}
+
+.rectangle3{
+  width:150vw;
+  height:85vw;
+  background: linear-gradient(to right,#7F00FF, #b403fa);
+  position: fixed;
+  margin-top: -10em;
+  margin-left: -15.5em;
+  border-radius: 60px;
+  z-index: -1;
+}
 
 nav {
   /* peux tu créer plusieurs colonnes */
@@ -89,15 +112,41 @@ a::before {
   transform-origin: bottom left;
 }
 
-#CV {
-  width:800px; 
-  height:1200px;
-  margin-left: 28%;
-  /* center l'image au milieu de la page web*/
-  /* bordure */
-  border: 10px solid #ffffff;
-  /* bordure arrondie */
-  border-radius: 20px;
-  /* ombre */
-  box-shadow: 0 0 10px #ffffff;
+p {
+  grid-column-start: 0; 
+  grid-column-end: 0;
+  text-decoration: none;
+  color: white;
+  font-family: 'Righteous', cursive;
+  margin-left: 10%;
+  font-size: 1.8vw;
 }
+
+#CV {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 43%;
+}
+
+#Image {
+  width: 100%;
+}
+
+@media screen and (max-width: 1910px) {
+  
+  .rectangle{
+    width:150vw;
+    height:85vw;
+    background: linear-gradient(to right,#7F00FF, #b403fa);
+    position: fixed;
+    rotate: 10deg;
+    margin-top: -10em;
+    margin-left: -15.5em;
+    border-radius: 60px;
+    z-index: -1;
+  }
+  
+}
+
+
