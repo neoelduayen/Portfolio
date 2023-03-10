@@ -40,7 +40,6 @@ body {
 }
 
 nav {
-  /* peux tu créer plusieurs colonnes */
   display: grid;
   grid-template-columns: 2.5fr 1.5fr;
 }
@@ -72,7 +71,6 @@ li {
 }
 
 .menu {
-  /* créer moi un menu de connexion */
   text-decoration: none;
   color: white;
   font-family: 'Righteous', cursive;
@@ -111,6 +109,11 @@ a::before {
   transform-origin: bottom left;
 }
 
+.contact {
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr;
+}
+
 p {
   grid-column-start: 0; 
   grid-column-end: 0;
@@ -136,6 +139,10 @@ p {
   width: 2%;
   height: 2%;
   padding-right: 1%;
+}
+
+#pfp {
+  width: 43%;
 }
 
 @media screen and (max-width: 1600px) {
@@ -165,14 +172,12 @@ p {
   }
   
   nav {
-    /* peux tu créer plusieurs colonnes */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 0.3fr;
   }
   
   .menu {
-    /* créer moi un menu de connexion */
     text-decoration: none;
     color: white;
     font-family: 'Righteous', cursive;
@@ -219,6 +224,19 @@ p {
     font-family: 'Righteous', cursive;
     margin-left: 10%;
     font-size: 2em;
+  }
+
+  #CV {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .Logo {
+    width: 5%;
+    height: 5%;
+    padding-right: 1%;
   }
   
   }
