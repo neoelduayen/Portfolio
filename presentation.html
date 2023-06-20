@@ -11,6 +11,10 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<link
+  			rel="stylesheet"
+  			href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+		/>
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/variable.css" />
 		<link rel="stylesheet" href="css/header.css" />
@@ -56,18 +60,56 @@
 		<section id="fullpage">
 			<section class="section one">
 				<div class="section__content">
-					<h1 class="section__content__title">Compétences</h1>
+					<h1 class="section__content__title">Qui suis-je ?</h1>
 					<h2 class="section__content__subtitle">
-						Les compétences que j'ai acquises</a>
+						<a>Une courte présentation</a>
 					</h2>
-				</div>
+						<script type="module">
+							import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
+							
+							const swiper = new Swiper('.swiper', {
 
+							autoplay: {
+   								delay: 5000,
+ 							},
+
+							// Optional parameters
+							direction: 'horizontal',
+							loop: true,
+						  
+							// If we need pagination
+							pagination: {
+							  el: '.swiper-pagination',
+							  type: 'bullets',
+							},
+						  
+							// Navigation arrows
+							navigation: {
+							  nextEl: '.swiper-button-next',
+							  prevEl: '.swiper-button-prev',
+							},
+						  });
+						</script>
+						<!-- Slider main container -->
+						<div class="swiper">
+							<!-- Additional required wrapper -->
+							<div class="swiper-wrapper">
+	  						<!-- Slides -->
+	  							<div class="swiper-slide"><img class="swiper-img" src="image/placeholder.png"></div>
+	  							<div class="swiper-slide"><img class="swiper-img" src="image/placeholder.png"></div>
+	  							<div class="swiper-slide"><img class="swiper-img" src="image/placeholder.png"></div>
+							</div>
+							<!-- If we need pagination -->
+							<div class="swiper-pagination"></div>
+  
+							<!-- If we need navigation buttons -->
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div>
+  						</div>
+				</div>
 				<div class="section__action__container">
-					<a class="section__action__btn action__btn__primary" href="#"
-						>Mon CV</a
-					>
+					<a class="section__content__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nobis nulla atque! Doloribus maxime at accusantium vitae numquam architecto ea dolorum ex libero porro illo, nisi eos placeat reprehenderit quibusdam!</a>
 				</div>
-
 				<footer class="footer">
 					<ul>
 						<li><a href="#">Néo ELDUAYEN</a></li>
