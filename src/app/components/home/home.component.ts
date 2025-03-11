@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { SlickCarouselComponent } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   searchQuery: string = '';
-  
+  @ViewChild('slickModal', { static: true }) slickModal!: SlickCarouselComponent;
   constructor(private router: Router) {}
   
   searchProjects(): void {
@@ -26,5 +27,27 @@ export class HomeComponent {
   
   navigateToProjects(): void {
     this.router.navigate(['/projets']);
+  }
+
+  projects = [
+    { name: 'Projet 1', category: 'Web Design', description: 'Description de l\'image', date: 'Date de création' },
+    { name: 'Projet 2', category: 'Graphic Design', description: 'Description de l\'image', date: 'Date de création' },
+    { name: 'Projet 3', category: 'Web Design', description: 'Description de l\'image', date: 'Date de création' },
+    { name: 'Projet 4', category: 'Graphic Design', description: 'Description de l\'image', date: 'Date de création' },
+    { name: 'Projet 5', category: 'UI/UX', description: 'Description de l\'image', date: 'Date de création' }
+  ];
+
+  slideConfig = {
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    infinite: true,
+    arrows: false,
+    dots: true,
+  };
+  nextSlide() {
+    this.slickModal.slickNext();
+    }
+  prevSlide() {
+    this.slickModal.slickPrev();
   }
 }

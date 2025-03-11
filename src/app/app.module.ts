@@ -10,6 +10,7 @@ import { ProjetsComponent } from './components/projets/projets.component';
 import { CompetencesComponent } from './components/competences/competences.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import { ContactComponent } from './components/contact/contact.component';
     ProjetsComponent,
     CompetencesComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
