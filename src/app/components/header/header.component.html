@@ -1,1 +1,42 @@
-<p>header works!</p>
+<header class="sticky top-0 bg-white shadow-sm z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-20">
+        <div class="flex items-center">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-300 mr-3"></div>
+          <h1 class="text-xl font-bold sm:text-2xl">Mon Portfolio</h1>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <a [routerLink]="['/']" routerLinkActive="text-blue-600 font-semibold border-b-2 border-blue-600" [routerLinkActiveOptions]="{exact: true}" class="font-medium py-1 hover:text-blue-500 transition-colors">Accueil</a>
+          <a [routerLink]="['/projets']" routerLinkActive="text-blue-600 font-semibold border-b-2 border-blue-600" class="font-medium py-1 hover:text-blue-500 transition-colors">Projets</a>
+          <a [routerLink]="['/competences']" routerLinkActive="text-blue-600 font-semibold border-b-2 border-blue-600" class="font-medium py-1 hover:text-blue-500 transition-colors">Compétences</a>
+          <a [routerLink]="['/a-propos']" routerLinkActive="text-blue-600 font-semibold border-b-2 border-blue-600" class="font-medium py-1 hover:text-blue-500 transition-colors">A Propos</a>
+          <a [routerLink]="['/contact']" routerLinkActive="text-blue-600 font-semibold border-b-2 border-blue-600" class="font-medium py-1 hover:text-blue-500 transition-colors">Contact</a>
+        </div>
+        
+        <div class="md:hidden">
+          <button (click)="toggleMobileMenu()" class="focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      
+      <div class="md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+           [class.max-h-0]="!isMobileMenuOpen"
+           [class.max-h-96]="isMobileMenuOpen"
+           [class.opacity-0]="!isMobileMenuOpen"
+           [class.opacity-100]="isMobileMenuOpen"
+           [class.invisible]="!isMobileMenuOpen"
+           [class.visible]="isMobileMenuOpen">
+        <div class="flex flex-col space-y-3 py-4 border-t">
+          <a [routerLink]="['/']" routerLinkActive="text-blue-600 font-semibold bg-blue-50" [routerLinkActiveOptions]="{exact: true}" class="font-medium py-3 px-2 rounded hover:bg-gray-50 transition-colors" (click)="closeMobileMenu()">Accueil</a>
+          <a [routerLink]="['/projets']" routerLinkActive="text-blue-600 font-semibold bg-blue-50" class="font-medium py-3 px-2 rounded hover:bg-gray-50 transition-colors" (click)="closeMobileMenu()">Projets</a>
+          <a [routerLink]="['/competences']" routerLinkActive="text-blue-600 font-semibold bg-blue-50" class="font-medium py-3 px-2 rounded hover:bg-gray-50 transition-colors" (click)="closeMobileMenu()">Compétences</a>
+          <a [routerLink]="['/a-propos']" routerLinkActive="text-blue-600 font-semibold bg-blue-50" class="font-medium py-3 px-2 rounded hover:bg-gray-50 transition-colors" (click)="closeMobileMenu()">A Propos</a>
+          <a [routerLink]="['/contact']" routerLinkActive="text-blue-600 font-semibold bg-blue-50" class="font-medium py-3 px-2 rounded hover:bg-gray-50 transition-colors" (click)="closeMobileMenu()">Contact</a>
+        </div>
+      </div>
+    </div>
+</header>
