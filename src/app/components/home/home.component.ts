@@ -30,11 +30,11 @@ export class HomeComponent {
   }
 
   projects = [
-    { name: 'Projet 1', category: 'Web Design', description: 'Description de l\'image', date: 'Date de création' },
-    { name: 'Projet 2', category: 'Graphic Design', description: 'Description de l\'image', date: 'Date de création' },
-    { name: 'Projet 3', category: 'Web Design', description: 'Description de l\'image', date: 'Date de création' },
-    { name: 'Projet 4', category: 'Graphic Design', description: 'Description de l\'image', date: 'Date de création' },
-    { name: 'Projet 5', category: 'UI/UX', description: 'Description de l\'image', date: 'Date de création' }
+    { name: 'Projet 1', category: 'Web Design', description: 'Description de l\'image', date: '12/03/2025' },
+    { name: 'Projet 2', category: 'Graphic Design', description: 'Description de l\'image', date: '12/03/2025' },
+    { name: 'Projet 3', category: 'Web Design', description: 'Description de l\'image', date: '12/03/2025' },
+    { name: 'Projet 4', category: 'Graphic Design', description: 'Description de l\'image', date: '12/03/2025' },
+    { name: 'Projet 5', category: 'UI/UX', description: 'Description de l\'image', date: '12/03/2025' }
   ];
 
   slideConfig = {
