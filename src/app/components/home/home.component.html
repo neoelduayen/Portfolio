@@ -28,7 +28,7 @@
         </div>
     </div>
 </div>
-<div class="flex flex-col items-center justify-center mx-auto py-10 px-4">
+<div class="flex flex-col items-center justify-center mx-auto py-10 px-4 bg-gray-100">
     <h2 class="text-center text-2xl font-bold">Mes Projets</h2>
     <p class="text-center text-gray-600">Découvrez mes dernières réalisations</p>
     <button class="block mx-auto bg-black text-white py-2 px-4 rounded-md mt-4 cursor-pointer">
@@ -132,13 +132,13 @@
             </div>
         </div>
         
-        <!-- Django -->
+        <!-- Flask -->
         <div class="skill-item group relative">
             <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="assets/images/django.svg" alt="Django" class="h-10 w-10">
+                <img src="assets/images/flask.svg" alt="Flask" class="h-10 w-10">
             </div>
             <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
-                <p class="font-bold">Django</p>
+                <p class="font-bold">Flask</p>
                 <p>Framework Python pour le développement web rapide et sécurisé</p>
             </div>
         </div>
@@ -182,7 +182,7 @@
                 <img src="assets/images/android.svg" alt="Android" class="h-10 w-10">
             </div>
             <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
-                <p class="font-bold">Android</p>
+                <p class="font-bold">Android studio</p>
                 <p>Développement d'applications mobiles pour Android</p>
             </div>
         </div>
@@ -209,21 +209,21 @@
             </div>
         </div>
         
-        <!-- JavaScript (JS) -->
+        <!-- Java -->
         <div class="skill-item group relative">
             <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <div class="bg-black text-white p-2 font-bold">JS</div>
+                <img src="assets/images/java.svg" alt="Java" class="h-10 w-10">
             </div>
             <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
-                <p class="font-bold">JavaScript</p>
-                <p>Langage de programmation essentiel pour le développement web</p>
+                <p class="font-bold">Java</p>
+                <p>Langage de programmation pour des applications</p>
             </div>
         </div>
         
         <!-- PHP texte -->
         <div class="skill-item group relative">
             <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <div class="font-bold text-xl">PHP</div>
+                <img src="assets/images/php.svg" alt="PHP" class="h-10 w-10">
             </div>
             <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">PHP</p>
@@ -285,10 +285,21 @@
                 <p>Système de contrôle de version distribué</p>
             </div>
         </div>
+
+        <!-- Symfony -->
+        <div class="skill-item group relative">
+            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
+                <img src="assets/images/symfony.svg" alt="Symfony" class="h-10 w-10">
+            </div>
+            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+                <p class="font-bold">Symfony</p>
+                <p>Framework php puissant et pratique</p>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="contact-section bg-white py-12 h-[468px] flex items-center py-12 px-[170px]">
+<div class="contact-section bg-gray-100 py-12 h-[468px] flex items-center py-12 px-[170px]">
     <div class="container mx-auto px-4 md:px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="flex flex-col justify-center">
@@ -349,8 +360,8 @@
         </div>
       </div>
     </div>
-  </div>
-
+</div>
+<app-footer></app-footer>
 <style>
     .skill-tooltip {
         z-index: 10;

@@ -11,6 +11,7 @@ import { CompetencesComponent } from './components/competences/competences.compo
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     CompetencesComponent,
     AboutComponent,
     ContactComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
