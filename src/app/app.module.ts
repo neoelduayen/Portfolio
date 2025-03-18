@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjetsComponent } from './components/projets/projets.component';
 import { CompetencesComponent } from './components/competences/competences.component';
 import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -21,7 +20,6 @@ import { FooterComponent } from './components/footer/footer.component';
     ProjetsComponent,
     CompetencesComponent,
     AboutComponent,
-    ContactComponent,
     FooterComponent,
   ],
   imports: [

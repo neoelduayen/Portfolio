@@ -7,12 +7,15 @@
 
                 <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto md:mx-0">
                     <button
+                        [routerLink]="['/home']"
+                        fragment="contact"
                         class="px-6 py-3 border border-gray-800 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
                         Me Contacter
                     </button>
                     <button
+                        [routerLink]="['/a-propos']"
                         class="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors cursor-pointer">
-                        Explorer mes projets
+                        A propos de moi
                     </button>
                 </div>
             </div>
@@ -26,7 +29,7 @@
 <div class="flex flex-col items-center justify-center mx-auto py-10 px-4 bg-gray-100">
     <h2 class="text-center text-2xl font-bold">Mes Projets</h2>
     <p class="text-center text-gray-600">Découvrez mes dernières réalisations</p>
-    <button class="block mx-auto bg-black text-white py-2 px-4 rounded-md mt-4 cursor-pointer">
+    <button [routerLink]="['/projets']" class="block mx-auto bg-black text-white py-2 px-4 rounded-md mt-4 cursor-pointer">
         Voir Plus
     </button>
 
@@ -73,7 +76,7 @@
     <h2 class="text-3xl font-bold mb-2">Mes compétences</h2>
     <p class="text-gray-600 mb-6">Apprenez en un peu plus sur moi</p>
 
-    <button class="bg-black text-white py-2 px-6 rounded-md mb-8 hover:bg-gray-800 transition cursor-pointer">
+    <button [routerLink]="['/competences']" class="bg-black text-white py-2 px-6 rounded-md mb-8 hover:bg-gray-800 transition cursor-pointer">
         Voir Plus
     </button>
 
@@ -340,7 +343,7 @@
     </div>
 </div>
 
-<div class="contact-section bg-gray-100 py-12 h-[468px] flex items-center py-12 px-[170px]">
+<div id="contact" class="contact-section bg-gray-100 py-12 h-[468px] flex items-center py-12 px-[170px]">
     <div class="container mx-auto px-4 md:px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="flex flex-col justify-center">
