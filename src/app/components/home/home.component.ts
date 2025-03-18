@@ -36,14 +36,44 @@ export class HomeComponent {
     { name: 'Projet 4', category: 'Graphic Design', description: 'Description de l\'image', date: '12/03/2025' },
     { name: 'Projet 5', category: 'UI/UX', description: 'Description de l\'image', date: '12/03/2025' }
   ];
-
+  
   slideConfig = {
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     infinite: true,
     arrows: false,
     dots: true,
+    autoplay: false,
+    adaptiveHeight: true,
+    variableWidth: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      }
+    ]
   };
+
   nextSlide() {
     this.slickModal.slickNext();
     }

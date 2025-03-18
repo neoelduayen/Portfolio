@@ -1,14 +1,9 @@
-<div class="min-h-[520px] w-full bg-white flex items-center px-[170px]">
+<div class="h-[calc(100vh-80px)] w-full bg-white flex items-center px-[170px]">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between">
             <div class="w-full md:w-1/2 py-8 md:py-0 text-center md:text-left">
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Bienvenue sur mon Portfolio</h1>
                 <p class="text-lg mb-6 text-gray-700">Découvrez mes créations et mon parcours professionnel</p>
-
-                <div class="mb-6 max-w-md mx-auto md:mx-0">
-                    <input type="text" placeholder="Rechercher des projets"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200">
-                </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto md:mx-0">
                     <button
@@ -35,258 +30,296 @@
         Voir Plus
     </button>
 
-    <!-- Conteneur flex pour les flèches et le carousel -->
-    <div class="flex items-center mt-6 space-x-4 justify-center">
-        <!-- Flèche gauche -->
-        <button (click)="prevSlide()"
-            class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 transition cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-        </button>
-
-        <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig" class="carousel w-full max-w-4xl"> 
-            <div ngxSlickItem *ngFor="let project of projects" class="px-2"> 
-              <div class="rounded-lg overflow-hidden border-1 border-gray-300 shadow-sm">
-                <div class="relative bg-gray-200 h-64 flex items-center justify-center">
-                  <div class="absolute top-2 left-2 bg-gray-300 text-sm px-2 py-1 rounded-md">
-                    {{ project.category }}
-                  </div>
-                  <span class="text-gray-600">Description de l'image</span>
+    <div class="w-full max-w-4xl lg:max-w-4xl md:max-w-2xl sm:max-w-lg mx-auto overflow-visible flex justify-center">
+        <div class="relative flex items-center w-full justify-center">
+            <button (click)="prevSlide()"
+                class="hidden md:flex bg-black text-white w-12 aspect-square rounded-full items-center justify-center hover:bg-gray-800 transition cursor-pointer z-10 flex-shrink-0 mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+    
+            <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig" class="w-full pl-2 pr-2">
+                <div ngxSlickItem *ngFor="let project of projects" class="py-2 px-1 sm:px-2">
+                    <div
+                        class="rounded-lg overflow-hidden border-2 border-gray-300 shadow-sm h-full mx-auto w-full sm:w-11/12 max-w-[90%]">
+                        <div class="relative bg-gray-200 h-40 sm:h-48 md:h-52 lg:h-56 flex items-center justify-center">
+                            <div class="absolute top-2 left-2 bg-gray-300 text-xs sm:text-sm px-2 py-1 rounded-md">
+                                {{ project.category }}
+                            </div>
+                            <span class="text-gray-600 text-sm">{{ project.description }}</span>
+                        </div>
+    
+                        <div class="p-3 sm:p-4 border-t border-gray-300 bg-white">
+                            <p class="font-medium mb-1 text-sm sm:text-base truncate">{{ project.name }}</p>
+                            <p class="text-gray-600 text-xs sm:text-sm">{{ project.date }}</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="p-4 border-t border-gray-300 bg-white">
-                  <p class="font-medium mb-1">{{ project.name }}</p>
-                  <p class="text-gray-600">{{project.date}}</p>
-                </div>
-              </div>
-            </div>
-          </ngx-slick-carousel>
-
-        <!-- Flèche droite -->
-        <button (click)="nextSlide()"
-            class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-800 transition cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-        </button>
-    </div>
+            </ngx-slick-carousel>
+    
+            <button (click)="nextSlide()"
+                class="hidden md:flex bg-black text-white w-12 aspect-square rounded-full items-center justify-center hover:bg-gray-800 transition cursor-pointer z-10 flex-shrink-0 ml-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>    
 </div>
 <div class="skills-section container mx-auto py-10 px-4 max-w-[1300px] px-[170px]">
     <h2 class="text-3xl font-bold mb-2">Mes compétences</h2>
     <p class="text-gray-600 mb-6">Apprenez en un peu plus sur moi</p>
-    
-    <button class="bg-black text-white py-2 px-6 rounded-md mb-8 hover:bg-gray-800 transition">
+
+    <button class="bg-black text-white py-2 px-6 rounded-md mb-8 hover:bg-gray-800 transition cursor-pointer">
         Voir Plus
     </button>
-    
+
     <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-4">
         <!-- React -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/react.svg" alt="React" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">     
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">React</p>
                 <p>Framework JavaScript pour créer des interfaces utilisateur interactives</p>
             </div>
         </div>
-        
+
         <!-- JavaScript -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/javascript.svg" alt="JavaScript" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">JavaScript</p>
                 <p>Langage de programmation pour le développement web front-end</p>
             </div>
         </div>
-        
+
         <!-- TypeScript -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/typescript.svg" alt="TypeScript" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">TypeScript</p>
                 <p>Superset de JavaScript avec typage statique</p>
             </div>
         </div>
-        
+
         <!-- HTML5 -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/html.svg" alt="HTML5" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">HTML5</p>
                 <p>Langage de balisage pour structurer le contenu web</p>
             </div>
         </div>
-        
+
         <!-- Bootstrap -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/bootstrap.svg" alt="Bootstrap" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Bootstrap</p>
                 <p>Framework CSS pour la création d'interfaces responsives</p>
             </div>
         </div>
-        
+
         <!-- Flask -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/flask.svg" alt="Flask" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Flask</p>
                 <p>Framework Python pour le développement web rapide et sécurisé</p>
             </div>
         </div>
-        
+
         <!-- Python -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/python.svg" alt="Python" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Python</p>
                 <p>Langage de programmation polyvalent et facile à apprendre</p>
             </div>
         </div>
-        
+
         <!-- Laravel -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/laravel.svg" alt="Laravel" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Laravel</p>
                 <p>Framework backend, côté serveur pour le développement web</p>
             </div>
         </div>
-        
+
         <!-- QT -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/qt.svg" alt="QT" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/qt/qt-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">QT</p>
                 <p>Framework pour créer des applications</p>
             </div>
         </div>
-        
+
         <!-- Android -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/android.svg" alt="Android" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Android studio</p>
                 <p>Développement d'applications mobiles pour Android</p>
             </div>
         </div>
-        
+
         <!-- Docker -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/docker.svg" alt="Docker" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Docker</p>
                 <p>Plateforme de conteneurisation pour le déploiement d'applications</p>
             </div>
         </div>
-        
+
         <!-- JSON -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/json.svg" alt="JSON" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">JSON</p>
                 <p>Format d'échange de données léger et facile à lire</p>
             </div>
         </div>
-        
+
         <!-- Java -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/java.svg" alt="Java" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Java</p>
                 <p>Langage de programmation pour des applications</p>
             </div>
         </div>
-        
+
         <!-- PHP -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/php.svg" alt="PHP" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">PHP</p>
                 <p>Langage de programmation côté serveur pour le développement web</p>
             </div>
         </div>
-        
+
         <!-- WordPress -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/wordpress.svg" alt="WordPress" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">WordPress</p>
                 <p>Système de gestion de contenu (CMS) le plus populaire au monde</p>
             </div>
         </div>
-        
+
         <!-- Angular -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/angular.svg" alt="Angular" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Angular</p>
                 <p>Framework JavaScript pour la création d'applications web robustes</p>
             </div>
         </div>
-        
+
         <!-- Tailwind CSS -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/tailwind.svg" alt="Tailwind CSS" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Tailwind CSS</p>
                 <p>Framework CSS utilitaire pour un développement rapide</p>
             </div>
         </div>
-        
+
         <!-- Node.js -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/nodejs.svg" alt="Node.js" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Node.js</p>
                 <p>Environnement d'exécution JavaScript côté serveur</p>
             </div>
         </div>
-        
+
         <!-- Git -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/git.svg" alt="Git" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Git</p>
                 <p>Système de contrôle de version distribué</p>
             </div>
@@ -294,10 +327,12 @@
 
         <!-- Symfony -->
         <div class="skill-item group relative">
-            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105">
-                <img src="images/symfony.svg" alt="Symfony" class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0">
+            <div
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg" />
             </div>
-            <div class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
+            <div
+                class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
                 <p class="font-bold">Symfony</p>
                 <p>Framework php puissant et pratique</p>
             </div>
@@ -307,64 +342,48 @@
 
 <div class="contact-section bg-gray-100 py-12 h-[468px] flex items-center py-12 px-[170px]">
     <div class="container mx-auto px-4 md:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="flex flex-col justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-moi</h2>
-          <p class="text-gray-600 mb-6">Envoyez-moi un message pour toute demande ou collaboration</p>
-          <div class="md:hidden">
-            <img src="/api/placeholder/400/200" alt="Contact illustration" class="w-full h-auto rounded-lg mb-6" />
-          </div>
-        </div>
-        
-        <div class="w-full">
-          <form class="space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                placeholder="Votre nom" 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                required
-              >
-            </div>
-            
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                placeholder="Votre email" 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                required
-              >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="flex flex-col justify-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-moi</h2>
+                <p class="text-gray-600 mb-6">Envoyez-moi un message pour toute demande ou collaboration</p>
+                <div class="md:hidden">
+                    <img src="/api/placeholder/400/200" alt="Contact illustration"
+                        class="w-full h-auto rounded-lg mb-6" />
+                </div>
             </div>
 
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                rows="3" 
-                placeholder="Votre message" 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                required
-              ></textarea>
+            <div class="w-full">
+                <form class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                            required>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                            required>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Votre message"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                            required></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit"
+                            class="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
             </div>
-            
-            <div class="pt-2">
-              <button 
-                type="submit" 
-                class="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
-              >
-                Envoyer
-              </button>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
 </div>
 <app-footer></app-footer>
@@ -372,7 +391,7 @@
     .skill-tooltip {
         z-index: 10;
     }
-    
+
     @media (max-width: 640px) {
         .skill-tooltip {
             bottom: auto;
