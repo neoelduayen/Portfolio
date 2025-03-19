@@ -2,8 +2,8 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="flex items-center justify-between h-20">
         <div class="flex items-center">
-          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-300 mr-3"></div>
-          <h1 class="text-xl font-bold sm:text-2xl">Mon Portfolio</h1>
+          <div [routerLink]="['/']" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-300 mr-3 cursor-pointer"></div>
+          <h1 [routerLink]="['/']" class="text-xl font-bold sm:text-2xl cursor-pointer">Mon Portfolio</h1>
         </div>
         
         <div class="hidden md:flex items-center space-x-4 lg:space-x-8">

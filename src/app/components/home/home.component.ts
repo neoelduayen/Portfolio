@@ -38,7 +38,7 @@ export class HomeComponent {
   ];
   
   slideConfig = {
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
     arrows: false,
@@ -50,7 +50,7 @@ export class HomeComponent {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           arrows: false
         }
@@ -58,7 +58,7 @@ export class HomeComponent {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           arrows: false
         }

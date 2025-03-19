@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -30,8 +29,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class HeaderComponent {
-
-  constructor(private route: ActivatedRoute) {}
 
   isMobileMenuOpen = false;
 
