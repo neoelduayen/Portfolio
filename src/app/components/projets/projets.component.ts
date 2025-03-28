@@ -33,7 +33,7 @@ export class ProjetsComponent {
       title: 'Greenscore',
       description: 'Plugin Green qui permet de visualiser son émission de CO2 et de la réduire.',
       tags: ['Symfony', 'Tailwind', 'Chart.js'],
-      images: ['/api/placeholder/600/400', '/api/placeholder/600/400', '/api/placeholder/600/400'],
+      images: ['images/greenscore.png', 'images/greenscore2.png', 'images/greenscore3.png'],
       demoLink: 'https://greenscoreweb.alwaysdata.net/',
       codeLink: 'https://github.com/GreenScoreWebPlugin/GreenScorePlugin'
     },
