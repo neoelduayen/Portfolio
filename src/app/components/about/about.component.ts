@@ -50,7 +50,7 @@ export class AboutComponent {
 
   interests = [
     'Jeux vidéos', 'Pelote basque', 'Tir sportif', 'Musculation', 'Dessin', 
-    '3D', 'Moto', 'Cinéma', 'Voyages'
+    '3D', 'Moto', 'Cinéma', 'Voyages', 'Peggle'
   ];
 
   languages = [

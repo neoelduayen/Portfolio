@@ -30,11 +30,11 @@ export class HomeComponent {
   }
 
   projects = [
-    { name: 'Projet 1', category: 'Web Design', description: 'Description de l\'image', date: '12/03/2025' },
-    { name: 'Projet 2', category: 'Graphic Design', description: 'Description de l\'image', date: '12/03/2025' },
-    { name: 'Projet 3', category: 'Web Design', description: 'Description de l\'image', date: '12/03/2025' },
-    { name: 'Projet 4', category: 'Graphic Design', description: 'Description de l\'image', date: '12/03/2025' },
-    { name: 'Projet 5', category: 'UI/UX', description: 'Description de l\'image', date: '12/03/2025' }
+    { name: 'Pixees', category: 'Web app', description: 'Application de création et de Pixels art avec une communauté en ligne', image: 'images/pixees.png'},
+    { name: 'Greenscore', category: 'Web app/plugin', description: 'Plugin Green qui permet de visualiser son émission de CO2 et de la réduire.', image: 'images/greenscore.png'},
+    { name: 'Ovcrkazov', category: 'Web app', description: "Projet pour la Nuit de l'Info 2023 qui demande à dire le vrai du faux concernant l'environnement", image: 'images/ovcrkazov.png'},
+    { name: 'Corpean', category: 'Web app', description: "Projet pour la Nuit de L'Info 2024 qui met en lien les parties du corps humain avec l'océan.", image: 'images/corpean.png'},
+    { name: 'Portfolio', category: 'Portfolio', description: 'Mon portfolio personnel pour présenter mes projets et mes compétences.', image: 'images/portfolio.png'}
   ];
   
   slideConfig = {

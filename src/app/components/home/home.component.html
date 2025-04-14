@@ -6,14 +6,11 @@
                 <p class="text-lg mb-6 text-gray-700">Découvrez mes créations et mon parcours professionnel</p>
 
                 <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto md:mx-0">
-                    <button
-                        [routerLink]="['/home']"
-                        fragment="contact"
+                    <button [routerLink]="['/home']" fragment="contact"
                         class="px-6 py-3 border border-gray-800 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
                         Me Contacter
                     </button>
-                    <button
-                        [routerLink]="['/a-propos']"
+                    <button [routerLink]="['/a-propos']"
                         class="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors cursor-pointer">
                         A propos de moi
                     </button>
@@ -21,8 +18,11 @@
             </div>
 
             <div class="w-full md:w-1/2 mt-8 md:mt-0">
-                <div class="bg-gray-200 h-64 sm:h-80 md:h-96 w-full rounded-md"></div>
+                <div class="bg-gray-200 h-64 sm:h-80 md:h-96 w-full rounded-md overflow-hidden">
+                    <img src="images/peggle.jpg" class="w-full h-full object-cover" alt="Portfolio" />
+                </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -37,7 +37,8 @@
             </button>
         </div>
 
-        <div class="w-full max-w-4xl lg:max-w-4xl md:max-w-2xl sm:max-w-lg mx-auto overflow-visible flex justify-center">
+        <div
+            class="w-full max-w-4xl lg:max-w-4xl md:max-w-2xl sm:max-w-lg mx-auto overflow-visible flex justify-center">
             <div class="relative flex items-center w-full justify-center">
                 <button (click)="prevSlide()"
                     class="hidden md:flex bg-black text-white w-12 aspect-square rounded-full items-center justify-center hover:bg-gray-800 transition cursor-pointer z-10 flex-shrink-0 mr-4">
@@ -46,26 +47,41 @@
                         <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
                 </button>
-        
+
                 <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig" class="w-full pl-2 pr-2">
                     <div ngxSlickItem *ngFor="let project of projects" class="py-2 px-1 sm:px-2">
                         <div
                             class="rounded-lg overflow-hidden border-2 border-gray-300 shadow-sm h-full mx-auto w-full sm:w-11/12 max-w-[90%]">
-                            <div class="relative bg-gray-200 h-40 sm:h-48 md:h-52 lg:h-56 flex items-center justify-center">
-                                <div class="absolute top-2 left-2 bg-gray-300 text-xs sm:text-sm px-2 py-1 rounded-md">
+
+                            <div class="relative bg-gray-200 h-40 sm:h-48 md:h-52 lg:h-56">
+
+                                <div
+                                    class="absolute top-2 left-2 bg-gray-300 text-xs sm:text-sm px-2 py-1 rounded-md z-10">
                                     {{ project.category }}
                                 </div>
-                                <span class="text-gray-600 text-sm">{{ project.description }}</span>
+
+                                <ng-container *ngIf="project.image != null; else noImage">
+                                    <img class="w-full h-full object-cover" [src]="project.image" alt="Project image" />
+                                </ng-container>
+
+                                <ng-template #noImage>
+                                    <div class="flex items-center justify-center w-full h-full">
+                                        <span class="text-gray-600 text-sm text-center px-2">{{ project.description
+                                            }}</span>
+                                    </div>
+                                </ng-template>
+
                             </div>
-        
+
                             <div class="p-3 sm:p-4 border-t border-gray-300 bg-white">
                                 <p class="font-medium mb-1 text-sm sm:text-base truncate">{{ project.name }}</p>
-                                <p class="text-gray-600 text-xs sm:text-sm">{{ project.date }}</p>
+                                <p class="text-gray-600 text-xs sm:text-sm">{{ project.description }}</p>
                             </div>
                         </div>
                     </div>
                 </ngx-slick-carousel>
-        
+
+
                 <button (click)="nextSlide()"
                     class="hidden md:flex bg-black text-white w-12 aspect-square rounded-full items-center justify-center hover:bg-gray-800 transition cursor-pointer z-10 flex-shrink-0 ml-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -74,7 +90,7 @@
                     </svg>
                 </button>
             </div>
-        </div>    
+        </div>
     </div>
 </div>
 
@@ -82,7 +98,8 @@
     <h2 class="text-3xl font-bold mb-2">Mes compétences</h2>
     <p class="text-gray-600 mb-6">Apprenez en un peu plus sur moi</p>
 
-    <button [routerLink]="['/competences']" class="bg-black text-white py-2 px-6 rounded-md mb-8 hover:bg-gray-800 transition cursor-pointer">
+    <button [routerLink]="['/competences']"
+        class="bg-black text-white py-2 px-6 rounded-md mb-8 hover:bg-gray-800 transition cursor-pointer">
         Voir Plus
     </button>
 
@@ -90,8 +107,9 @@
         <!-- React -->
         <div class="skill-item group relative">
             <div
-                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">     
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
+                class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -104,7 +122,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -117,7 +136,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -130,7 +150,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -143,7 +164,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -156,7 +178,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -169,7 +192,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -182,7 +206,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -195,7 +220,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/qt/qt-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/qt/qt-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -208,7 +234,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -221,7 +248,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -234,7 +262,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -247,7 +276,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -260,7 +290,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -273,7 +304,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -286,7 +318,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -299,7 +332,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -312,7 +346,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -325,7 +360,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -338,7 +374,8 @@
         <div class="skill-item group relative">
             <div
                 class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center aspect-square transition-transform group-hover:scale-105 cursor-pointer">
-            <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg" />
+                <img class="h-10 w-10 filter grayscale transition duration-300 group-hover:grayscale-0"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg" />
             </div>
             <div
                 class="skill-tooltip opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-gray-900 text-white text-xs rounded p-2 transition-opacity">
@@ -355,11 +392,17 @@
             <div class="flex flex-col justify-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-moi</h2>
                 <p class="text-gray-600 mb-6">Envoyez-moi un message pour toute demande ou collaboration</p>
+
+                <!-- Mobile image -->
                 <div class="md:hidden mb-6">
-                    <img src="/api/placeholder/400/200" alt="Contact illustration" class="w-full h-auto rounded-lg" />
+                    <img src="images/contact.png" alt="Contact illustration"
+                        class="w-2/3 max-w-xs mx-auto h-auto rounded-lg" />
                 </div>
+
+                <!-- Desktop image -->
                 <div class="hidden md:block mb-6">
-                    <img src="/api/placeholder/400/200" alt="Contact illustration" class="w-full h-auto rounded-lg" />
+                    <img src="images/contact.png" alt="Contact illustration"
+                        class="w-2/3 max-w-sm mx-auto h-auto rounded-lg" />
                 </div>
             </div>
 
@@ -369,14 +412,14 @@
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
                         <input type="text" id="name" name="name" placeholder="Votre nom"
                             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                            required>
+                            required />
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                         <input type="email" id="email" name="email" placeholder="Votre email"
                             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                            required>
+                            required />
                     </div>
 
                     <div>
@@ -397,6 +440,7 @@
         </div>
     </div>
 </div>
+
 
 <style>
     .skill-tooltip {
